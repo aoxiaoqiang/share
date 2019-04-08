@@ -7,11 +7,11 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.05623d48.js" as="script"><link rel="preload" href="/share/assets/js/5.6b4b3fc2.js" as="script"><link rel="preload" href="/share/assets/js/3.df50b1a3.js" as="script"><link rel="prefetch" href="/share/assets/js/2.4f725a8f.js"><link rel="prefetch" href="/share/assets/js/4.874face1.js"><link rel="prefetch" href="/share/assets/js/6.c8eff9c4.js"><link rel="prefetch" href="/share/assets/js/7.7a4f7676.js"><link rel="prefetch" href="/share/assets/js/8.ebbd0b0d.js">
+    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.6a194ca3.js" as="script"><link rel="preload" href="/share/assets/js/5.6b4b3fc2.js" as="script"><link rel="preload" href="/share/assets/js/3.0320b502.js" as="script"><link rel="prefetch" href="/share/assets/js/2.53199750.js"><link rel="prefetch" href="/share/assets/js/4.874face1.js"><link rel="prefetch" href="/share/assets/js/6.c8eff9c4.js"><link rel="prefetch" href="/share/assets/js/7.4a1e609b.js"><link rel="prefetch" href="/share/assets/js/8.f5229649.js"><link rel="prefetch" href="/share/assets/js/9.19e7072c.js">
     <link rel="stylesheet" href="/share/assets/css/0.styles.18e0c493.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><div class="content"><h1>404</h1> <blockquote>How did we get here?</blockquote> <a href="/share/" class="router-link-active">Take me home.</a></div></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/share/assets/js/app.05623d48.js" defer></script><script src="/share/assets/js/5.6b4b3fc2.js" defer></script><script src="/share/assets/js/3.df50b1a3.js" defer></script>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><div class="content"><h1>404</h1> <blockquote>Looks like we've got some broken links.</blockquote> <a href="/share/" class="router-link-active">Take me home.</a></div></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/share/assets/js/app.6a194ca3.js" defer></script><script src="/share/assets/js/5.6b4b3fc2.js" defer></script><script src="/share/assets/js/3.0320b502.js" defer></script>
   </body>
 </html>

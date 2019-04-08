@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对 jgb-weapp 一些思考及分享</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.6a194ca3.js" as="script"><link rel="preload" href="/share/assets/js/2.53199750.js" as="script"><link rel="preload" href="/share/assets/js/7.4a1e609b.js" as="script"><link rel="preload" href="/share/assets/js/3.0320b502.js" as="script"><link rel="prefetch" href="/share/assets/js/4.874face1.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.c8eff9c4.js"><link rel="prefetch" href="/share/assets/js/8.f5229649.js"><link rel="prefetch" href="/share/assets/js/9.19e7072c.js">
+    <link rel="stylesheet" href="/share/assets/css/0.styles.18e0c493.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/share/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="content default"><h1 id="对-jgb-weapp-一些思考及分享"><a href="#对-jgb-weapp-一些思考及分享" aria-hidden="true" class="header-anchor">#</a> 对 jgb-weapp 一些思考及分享</h1> <h2 id="初衷"><a href="#初衷" aria-hidden="true" class="header-anchor">#</a> 初衷</h2> <p>面临越来越复杂的业务，面对越来越多的需求，面对代码耦合严重，
+为此我们需要一个方便、易用、可扩展的框架。</p> <p>针对现状以及微信框架限制，选择另行封装一层微信api（包括：Page，Component，App，wx.xxx 等api），
+希望提供一些额外的扩展能力。下面列举了一些功能：</p> <ul><li>封装原生api
+<ul><li>Page =&gt; JPage</li> <li>Component =&gt; JComponent</li> <li>App =&gt; JApp</li> <li>wx.xxx =&gt; jgb.xxx 异步api提供 <code>Promise</code> 返回</li></ul></li> <li>JPage、JComponent、JApp 提供 <code>mixin</code>, <code>intercept</code> 功能
+<ul><li><code>mixin</code> 类似 <code>vue</code> 的功能</li> <li><code>intercept</code> 拦截内容并返回： 提供两种形式
+<ul><li>拦截某个函数 （在最早的生命周期函数执行 Object.defineProperty）</li> <li>拦截整个 opts ( <code>Page(opts)</code> )</li></ul></li></ul></li> <li>全局消息通知 <code>Eventbus</code> <ul><li>JPage、JComponent、JApp 内置 <code>eventbus</code></li></ul></li> <li>内置插件系统，方便扩展
+<ul><li>router 在JPage上置入类似 <code>vue-router</code> 的功能</li> <li>setData 优化setData</li> <li>eventbus 消息通知</li> <li>computed 计算属性</li></ul></li> <li>对typescript有较好支持，提升开发体验</li></ul> <h2 id="使用案例"><a href="#使用案例" aria-hidden="true" class="header-anchor">#</a> 使用案例</h2> <p>理论上可以覆盖所有需要的场景，能发挥多少功能，就看想象力。</p> <blockquote><p><strong>当然我们完全可以扩展单个功能为一个插件，方便其他小程序使用。</strong></p></blockquote> <ul><li><p>对于pv全局埋设</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code>  <span class="token keyword">import</span> <span class="token punctuation">{</span> analysis <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'analysis'</span>
+  <span class="token keyword">import</span> <span class="token punctuation">{</span> JPage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp'</span>
+  analysis<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  JPage<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">onLoad</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      analysis<span class="token punctuation">.</span><span class="token function">pv</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>统一添加Auth请求头</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> jgb <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp'</span>
+
+jgb<span class="token punctuation">.</span><span class="token function">intercept</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token string">'begin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> header <span class="token operator">=</span> opts<span class="token punctuation">.</span>header <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> auth <span class="token operator">=</span> <span class="token string">'xxxx'</span><span class="token punctuation">;</span>
+  header<span class="token punctuation">.</span>Authorization <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>auth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+  opts<span class="token punctuation">.</span>header <span class="token operator">=</span> header<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> opts<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></li></ul> <h2 id="实现"><a href="#实现" aria-hidden="true" class="header-anchor">#</a> 实现</h2> <h3 id="mixin"><a href="#mixin" aria-hidden="true" class="header-anchor">#</a> mixin</h3> <p>在调用<code>Page</code>之前对opts实现混入，如果已有方法则实现一个新方法然后内部调用。</p> <p>下面是伪代码，实现一个 mixin onLoad</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> mixins <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">onLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// do someting</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">JPage</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> oldOnLoad <span class="token operator">=</span> opts<span class="token punctuation">.</span>onLoad
+  
+  <span class="token keyword">const</span> <span class="token function-variable function">onLoad</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    oldOnload<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    mixins<span class="token punctuation">.</span>onLoad<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  
+  opts<span class="token punctuation">.</span>onLoad <span class="token operator">=</span> onLoad<span class="token punctuation">;</span>
+  
+  <span class="token function">Page</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="intercept"><a href="#intercept" aria-hidden="true" class="header-anchor">#</a> intercept</h3> <p>实现原理和mixin类似。不过实现机制不同，在最早的生命周期使用<code>Object.defineProperty</code>拦截函数并返回数据，返回的数据作为之后的函数的参数。</p> <p>下面是伪代码, 实现一个intercept onShareAppMessage</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">const</span> intercepts <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">onShareAppMessage</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> opts
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">JPage</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> oldOnLoad <span class="token operator">=</span> opts<span class="token punctuation">.</span>onLoad
+  <span class="token keyword">const</span> <span class="token function-variable function">onLoad</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> oldShareMessage <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>onShareAppMessage<span class="token punctuation">;</span>
+    Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token string">'onShareAppMessage'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token keyword">set</span><span class="token punctuation">(</span>nv<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        oldShareMessage <span class="token operator">=</span> nv
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> result <span class="token operator">=</span> intercepts<span class="token punctuation">.</span>onShareAppMessage<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+          <span class="token keyword">return</span> oldShareMessage<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    
+    oldOnload<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+  <span class="token punctuation">}</span>
+  
+  opts<span class="token punctuation">.</span>onLoad <span class="token operator">=</span> onLoad<span class="token punctuation">;</span>
+  
+  <span class="token function">Page</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="插件"><a href="#插件" aria-hidden="true" class="header-anchor">#</a> 插件</h3> <p>目的将不同功能独立，方便扩展。</p> <h4 id="开发插件"><a href="#开发插件" aria-hidden="true" class="header-anchor">#</a> 开发插件</h4> <h5 id="ts编译导出的方式"><a href="#ts编译导出的方式" aria-hidden="true" class="header-anchor">#</a> ts编译导出的方式</h5> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> JPage <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  JPage<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token function">onShow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// todo</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>引入插件</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> init <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-plugin-test'</span>
+
+<span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h5 id="导出use的方式"><a href="#导出use的方式" aria-hidden="true" class="header-anchor">#</a> 导出use的方式</h5> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> IPlugin <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp/types/plugins'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> testPlugin<span class="token punctuation">:</span> IPlugin <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">install</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> JComponent <span class="token punctuation">}</span> <span class="token operator">=</span> res<span class="token punctuation">;</span>
+    JComponent<span class="token punctuation">.</span><span class="token function">mixin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token function">attached</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// todo</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>引入插件</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> testPlugin <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-plugin-use-test'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> use <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp'</span>
+
+<span class="token function">use</span><span class="token punctuation">(</span>testPlugin<span class="token punctuation">)</span>
+</code></pre></div><p>两种方式的区别，最大区别在于use的方式是依赖注入，保持统一实例。而ts编译导出在一般情况下引用的实例是同一个。</p> <h3 id="jgb"><a href="#jgb" aria-hidden="true" class="header-anchor">#</a> jgb</h3> <p>主要扩展了异步接口支持以Promise的形式返回。</p> <h4 id="intercept-2"><a href="#intercept-2" aria-hidden="true" class="header-anchor">#</a> intercept</h4> <p>示例</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> jgb <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'jgb-weapp'</span>
+
+jgb<span class="token punctuation">.</span><span class="token function">intercept</span><span class="token punctuation">(</span><span class="token string">'request'</span><span class="token punctuation">,</span> <span class="token string">'begin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>opts<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> header <span class="token operator">=</span> opts<span class="token punctuation">.</span>header <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> auth <span class="token operator">=</span> <span class="token string">'xxxx'</span><span class="token punctuation">;</span>
+  header<span class="token punctuation">.</span>Authorization <span class="token operator">=</span> <span class="token template-string"><span class="token string">`Bearer </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>auth<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+  opts<span class="token punctuation">.</span>header <span class="token operator">=</span> header<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> opts<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>提供了四个生命周期: <code>begin</code>, <code>success</code>, <code>fail</code>, <code>complete</code>, 分别对应执行开始，成功，失败，完成。</p> <p><a href="https://github.com/jgbjs/jgb/blob/2.x/packages/jgb-weapp/src/native-api/index.ts" target="_blank" rel="noopener noreferrer">code<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">4/8/2019, 7:30:13 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/share/assets/js/app.6a194ca3.js" defer></script><script src="/share/assets/js/2.53199750.js" defer></script><script src="/share/assets/js/7.4a1e609b.js" defer></script><script src="/share/assets/js/3.0320b502.js" defer></script>
+  </body>
+</html>
