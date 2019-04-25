@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.fdc30af8.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/8.a95f50b1.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/10.4bdf8636.js"><link rel="prefetch" href="/share/assets/js/4.b058cb85.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.ce96adea.js"><link rel="prefetch" href="/share/assets/js/7.0b3d3c46.js"><link rel="prefetch" href="/share/assets/js/9.edbfcfd4.js">
+    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.de68caca.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/9.15dd379d.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/10.b7700f4c.js"><link rel="prefetch" href="/share/assets/js/11.9cbe315a.js"><link rel="prefetch" href="/share/assets/js/4.b058cb85.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.07aec94a.js"><link rel="prefetch" href="/share/assets/js/7.4a1e609b.js"><link rel="prefetch" href="/share/assets/js/8.99f02355.js">
     <link rel="stylesheet" href="/share/assets/css/0.styles.18e0c493.css">
   </head>
   <body>
@@ -170,6 +170,6 @@ console.log(res.code)
 }
 </code></pre></div><p>具体代码：
 <a href="https://github.com/SalterYu/MyBlog/blob/master/simple-bundler/babel-use/wx2swan.js">wx2swan.js</a> <a href="https://github.com/SalterYu/MyBlog/tree/master/simple-compiler">简易编译器</a></p> <h3 id="结尾"><a href="#结尾" aria-hidden="true" class="header-anchor">#</a> 结尾</h3> <p>分享几篇文章：</p> <ul><li><a href="https://juejin.im/post/5c21b584e51d4548ac6f6c99">Babel的深入了解</a></li> <li><a href="https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-writing-your-first-babel-plugin">Babel插件手册</a></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">4/12/2019, 8:43:40 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/share/assets/js/app.fdc30af8.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/8.a95f50b1.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
+    <script src="/share/assets/js/app.de68caca.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/9.15dd379d.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
   </body>
 </html>
