@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.a34cb03d.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/9.abdaf9be.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/10.2655e777.js"><link rel="prefetch" href="/share/assets/js/11.1b5b21ec.js"><link rel="prefetch" href="/share/assets/js/12.4cfc540f.js"><link rel="prefetch" href="/share/assets/js/13.027d3509.js"><link rel="prefetch" href="/share/assets/js/4.7674a282.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.4ea24fcf.js"><link rel="prefetch" href="/share/assets/js/7.0b3d3c46.js"><link rel="prefetch" href="/share/assets/js/8.7eac1576.js">
+    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.35e8eb11.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/9.abdaf9be.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/10.2655e777.js"><link rel="prefetch" href="/share/assets/js/11.1b5b21ec.js"><link rel="prefetch" href="/share/assets/js/12.4cfc540f.js"><link rel="prefetch" href="/share/assets/js/13.027d3509.js"><link rel="prefetch" href="/share/assets/js/4.7674a282.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.eae75b47.js"><link rel="prefetch" href="/share/assets/js/7.4062c9e3.js"><link rel="prefetch" href="/share/assets/js/8.7eac1576.js">
     <link rel="stylesheet" href="/share/assets/css/0.styles.18e0c493.css">
   </head>
   <body>
@@ -170,6 +170,6 @@ console.log(res.code)
 }
 </code></pre></div><p>具体代码：
 <a href="https://github.com/SalterYu/MyBlog/blob/master/simple-bundler/babel-use/wx2swan.js">wx2swan.js</a> <a href="https://github.com/SalterYu/MyBlog/tree/master/simple-compiler">简易编译器</a></p> <h3 id="结尾"><a href="#结尾" aria-hidden="true" class="header-anchor">#</a> 结尾</h3> <p>分享几篇文章：</p> <ul><li><a href="https://juejin.im/post/5c21b584e51d4548ac6f6c99">Babel的深入了解</a></li> <li><a href="https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-writing-your-first-babel-plugin">Babel插件手册</a></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">4/12/2019, 8:43:40 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/share/assets/js/app.a34cb03d.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/9.abdaf9be.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
+    <script src="/share/assets/js/app.35e8eb11.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/9.abdaf9be.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
   </body>
 </html>
