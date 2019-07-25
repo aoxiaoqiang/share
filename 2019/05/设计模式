@@ -7,7 +7,7 @@
     <meta name="description" content="">
     
     
-    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.35e8eb11.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/10.2655e777.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/11.1b5b21ec.js"><link rel="prefetch" href="/share/assets/js/12.4cfc540f.js"><link rel="prefetch" href="/share/assets/js/13.027d3509.js"><link rel="prefetch" href="/share/assets/js/4.7674a282.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.eae75b47.js"><link rel="prefetch" href="/share/assets/js/7.4062c9e3.js"><link rel="prefetch" href="/share/assets/js/8.7eac1576.js"><link rel="prefetch" href="/share/assets/js/9.abdaf9be.js">
+    <link rel="preload" href="/share/assets/css/0.styles.18e0c493.css" as="style"><link rel="preload" href="/share/assets/js/app.a34cb03d.js" as="script"><link rel="preload" href="/share/assets/js/2.99d8ca2c.js" as="script"><link rel="preload" href="/share/assets/js/10.2655e777.js" as="script"><link rel="preload" href="/share/assets/js/3.0ba4e460.js" as="script"><link rel="prefetch" href="/share/assets/js/11.1b5b21ec.js"><link rel="prefetch" href="/share/assets/js/12.4cfc540f.js"><link rel="prefetch" href="/share/assets/js/13.027d3509.js"><link rel="prefetch" href="/share/assets/js/4.7674a282.js"><link rel="prefetch" href="/share/assets/js/5.6b4b3fc2.js"><link rel="prefetch" href="/share/assets/js/6.4ea24fcf.js"><link rel="prefetch" href="/share/assets/js/7.0b3d3c46.js"><link rel="prefetch" href="/share/assets/js/8.7eac1576.js"><link rel="prefetch" href="/share/assets/js/9.abdaf9be.js">
     <link rel="stylesheet" href="/share/assets/css/0.styles.18e0c493.css">
   </head>
   <body>
@@ -436,6 +436,6 @@ Function<span class="token punctuation">.</span>prototype<span class="token punc
 <span class="token comment">// output:</span>
 <span class="token comment">// 1w以内，同意</span>
 </code></pre></div><p>补充：</p> <ul><li><p>纯的责任链：要求请求在这些对象链中必须被处理，而且一个节点处理对象，要么只处理请求，要么把请求转发给下个节点对象处理</p></li> <li><p>不纯的责任链：要求在责任链里不一定会有处理结构，而且一个节点对象，即可以处理部分请求，并把请求再转发下个节点处理</p></li></ul></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">5/13/2019, 2:34:26 AM</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----></div></div>
-    <script src="/share/assets/js/app.35e8eb11.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/10.2655e777.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
+    <script src="/share/assets/js/app.a34cb03d.js" defer></script><script src="/share/assets/js/2.99d8ca2c.js" defer></script><script src="/share/assets/js/10.2655e777.js" defer></script><script src="/share/assets/js/3.0ba4e460.js" defer></script>
   </body>
 </html>
