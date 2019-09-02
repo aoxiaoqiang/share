@@ -5,7 +5,7 @@
     * [开始](2019/03/start-share-blog.md)
   * 04
     * [对 jgb-weapp 一些思考及分享](2019/04/jgb-weapp.md)
-    * [对 AST的入门了解](https://salteryu.github.io/2019/03/21/simple-compiler/#more)
+    * [对 AST的入门了解](2019/04/simple-compiler.md)
     * [小程序优化相关](2019/04/miniprogram-optimization.md)
   * 05
     * [设计模式](2019/05/design_patterns.md)
