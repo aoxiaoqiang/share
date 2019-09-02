@@ -15,5 +15,9 @@ module.exports = {
     },
     '@vuepress/back-to-top': {},
     '@vuepress/active-header-links': {}
+  },
+  themeConfig: {
+    // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
+    repo: 'TuhuFE/share'
   }
 }
