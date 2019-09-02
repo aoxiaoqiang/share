@@ -8,7 +8,7 @@
     * [对 AST的入门了解](https://salteryu.github.io/2019/03/21/simple-compiler/#more)
     * [小程序优化相关](2019/04/miniprogram-optimization.md)
   * 05
-    * [设计模式](2019/05/设计模式.md)
-    * [JavaScript中的隐式转换](2019/05/隐式转换.md)
+    * [设计模式](2019/05/design_patterns.md)
+    * [JavaScript中的隐式转换](2019/05/implicit_conversion.md)
   * 08
     * [websocket在小程序中的应用](2019/08/websocket.md)
