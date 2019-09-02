@@ -9,8 +9,9 @@
 4. 微信小程序中Websocket实践；
 
 
-
 ## 什么是 Websocket
+
+官网[http://websocket.org](http://websocket.org)
 
 ### Websocket 出现的背景
 
@@ -39,9 +40,6 @@ HTML5定义了WebSocket协议，能更好的节省服务器资源和带宽，并
 + 协议标识符为`ws` (如果加密则为 `wss`)    ws://xxxx.xx?key=value
 
 
-
-![img](http://www.ruanyifeng.com/blogimg/asset/2017/bg2017051503.jpg)
-
 ### 协议
 
 http  ws ftp
@@ -49,7 +47,6 @@ http  ws ftp
 tcp    =>  ws =>  http
 
 udp  不可靠
-
 
 
 WebSocket协议被设计来取代现有的使用HTTP作为传输层的双向通信技术，并受益于现有的基础设施（代理、过滤、身份验证）。
@@ -259,6 +256,13 @@ wx.connectSocket({
   protocols: ['protocol1']
 })
 ```
+
+[微信小程序相关API文档](https://developers.weixin.qq.com/miniprogram/dev/api/network/websocket/wx.connectSocket.html)
+
+
+结后语:
+
+如果今天你只能记住一件事，请记住 WebSocket是采用全双工通信的协议的一种服务器推送技术；创建websocket的过程先通过http请求(成功状态码为101)建立连接，后续的消息出来均通过 `ws`协议；websocket实例有两个属性方法: `close` `send` 和 4个监听方法 `open`(服务端可能是`connention`) `message` `message` `error`；
 
 
 
